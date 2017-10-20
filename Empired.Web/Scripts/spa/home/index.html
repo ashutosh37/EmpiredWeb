@@ -1,0 +1,76 @@
+﻿<hr />
+<div class="row">
+    <div class="col-md-8">
+        <div class="panel panel-primary" id="panelLatestMovies">
+            <div class="panel-heading">
+                <h3 class="panel-title">Latest Movies Released</h3>
+            </div>
+
+            <div class="panel-body">
+                <div ng-if="loadingMovies">
+                    <div class="col-xs-4"></div>
+                    <div class="col-xs-4">
+                        <i class="fa fa-refresh fa-5x fa-spin"></i> <label class="label label-primary">Loading movies...</label>
+                    </div>
+                    <div class="col-xs-4"></div>
+                </div>
+                <div class="col-xs-12 col-sm-6 movie" ng-repeat="patient in patients">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <strong>{{patient.FirstName}} {{patient.LastName}}</strong><br />
+
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-condensed shortMargin">
+                                    <tr>
+                                        <td class="shortPadding">Email:</td>
+                                        <td class="shortPadding"><i>{{patient.Email}}</i></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="shortPadding">Mobile:</td>
+                                        <td class="shortPadding"><i>{{patient.Mobile}}</i></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="shortPadding">Birth:</td>
+                                        <td class="shortPadding"><i>{{patient.DateOfBirth | date:'mediumDate'}}</i></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="shortPadding">Registered:</td>
+                                        <td class="shortPadding"><i>{{patient.RegistrationDate | date:'mediumDate'}}</i></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="panel-footer clearfix">
+                            <label class="label label-danger">{{patient.IdentityCard}}</label>
+                            <div class="pull-right">
+                                <buton class="btn btn-primary btn-xs" ng-click="openEditDialog(customer);">Edit <i class="fa fa-pencil pull-right"></i></buton>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="panel panel-success" id="panelMovieGenres">
+            <div class="panel-heading">
+                <h3 class="panel-title">Movies Genres</h3>
+            </div>
+
+            <div class="panel-body">
+                <div ng-if="loadingGenres">
+                    <div class="col-xs-4"></div>
+                    <div class="col-xs-4"><i class="fa fa-refresh fa-5x fa-spin"></i> <label class="label label-primary">Loading Genres..</label></div>
+                    <div class="col-xs-4"></div>
+                </div>
+                <div id="genres-bar"></div>
+            </div>
+            <div class="panel-footer">
+                <p class="text-center"><em>Wanna add a new Movie? Head over to the add movie form.</em></p>
+                <p class="text-center"><a ng-href="#/movies/add" class="btn btn-default">Add new Movie</a></p>
+            </div>
+        </div>
+    </div>
+</div>
