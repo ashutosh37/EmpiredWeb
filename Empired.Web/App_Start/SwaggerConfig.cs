@@ -3,13 +3,12 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Web.Http;
 using WebActivatorEx;
-using FUSE.MVC;
-using FUSE.MVC.Infrastructure;
 using Swashbuckle.Application;
+using Empired.Web;
 
 [assembly: PreApplicationStartMethod(typeof(SwaggerConfig), "Register")]
 
-namespace FUSE.MVC
+namespace Empired.Web
 {
     public class SwaggerConfig
     {
